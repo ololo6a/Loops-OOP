@@ -33,31 +33,22 @@ public class Loops
 
         while (count<=n2){
 
-
             for (int i = step; i < n - step ; i++) {
-
-                A[step][i]=count;
-                ++count;
+                A[step][i]=count++;
             }
 
             for (int i = step+1; i < n - step ; i++) {
-                A[i][n-step-1]=count;
-                ++count;
+                A[i][n-step-1]=count++;
             }
 
 
             for (int i = n-step-2 ; i > step; i--) {
-                A[n-step-1][i]=count;
-                ++count;
+                A[n-step-1][i]=count++;
             }
-
-
 
             for (int i =n - step-1 ; i > step; i--) {
-                A[i][step]=count;
-                ++count;
+                A[i][step]=count++;
             }
-
 
             ++step;
         }
