@@ -62,13 +62,70 @@ public class Loops
         }
 
     }
+    int [] AB(int a, int b, int[]A,int[]B ){
 
+        int[]res = new int[a+b];
+        int  aa=0,bb=0;
+
+        for (int i = 0; i <a+b ; i++) {
+
+            if (aa==a){
+                res[i]=B[bb++];
+                continue;
+            }
+            if (bb==b){
+                res[i]=A[aa++];
+                continue;
+            }
+
+            if (A[aa] < B[bb] ) {
+                res[i]=A[aa++];
+            } else {
+                res[i]=B[bb++];
+            }
+
+        }
+
+        return res;
+    }
+
+    int lost (int [] M){
+
+        long s=0;
+        int n = M.length;
+        long ans = (n)*(n+1)/2;
+        for (int i = 0; i < n; i++) {
+            s+=M[i];
+        }
+        return (int) (ans-s);
+    }
     public static void main(String[] args) {
         Loops l = new Loops();
 
-        l.array(3);
+        l.array(2);
 
+        int [] q = {1,4,6,8,9};
+        int [] z = {2,4,5,7,19};
+        int [] r;
+        r=l.AB(5,5,q,z);
 
+        System.out.println("A+B");
+        for (int i = 0; i < 10 ; i++) {
+            System.out.print(r[i] + " ");
+        }
+
+        System.out.println();
+        System.out.println("Factorial");
         System.out.println(l.factorial(5));
+
+
+        System.out.println();
+        System.out.println("LOST");
+        int [] mas = {0,1,2,3,4,5,6,8,9,10,15,14,13,12,11};   // 7
+
+        System.out.println(l.lost(mas));
+
+
+
     }
 }
